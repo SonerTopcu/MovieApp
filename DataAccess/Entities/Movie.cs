@@ -1,13 +1,7 @@
 ﻿#nullable disable
 
-using DataAccess.Enums;
 using DataAccess.Records.Bases;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Entities
 {
@@ -16,12 +10,12 @@ namespace DataAccess.Entities
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
-        public Genre Genre { get; set; }
-        public DateTime ReleaseDate { get; set; }
-        public bool IsRecommended { get; set; }
-        public decimal IMDbRating { get; set; }
-        public decimal Metascore { get; set; }
-        public int TitleTypeId { get; set; }
-        public TitleType TitleTypes { get; set; }
+        public DateTime? PublishDate { get; set; }
+        public decimal? Revenue { get; set; }
+        public int? DirectorId { get; set; }
+        public Director Director { get; set; }
+        public List<UserMovie> UserMovies { get; set; }
+
+
     }
 }
