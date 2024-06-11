@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FavoriteModel>
+@*Generated from Custom Template.*@
+@*Model namespace using directive should be added to _ViewImports.cshtml.*@
+
+@{
+    ViewData["Title"] = "Favorites";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Clear">Clear Favorites</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RevenueOutput)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MovieName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RevenueOutput)
+                </td>
+                <td>
+                    <a asp-action="Remove" asp-route-gameId="@item.MovieId">Remove from Favorites</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
